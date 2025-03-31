@@ -131,3 +131,12 @@ body {
     animation: blinkBackground 3s infinite alternate; /* Efek kelap-kelip */
     transition: background-color 0.5s ease-in-out;
 }
+
+.moon {
+    width: 80px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.moon:hover {
+    transform: scale(1.2);
+}
