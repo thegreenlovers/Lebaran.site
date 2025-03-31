@@ -50,12 +50,15 @@ h2 {
 }
 
 .message-box {
-    background: rgba(255, 255, 255, 0.2);
+    font-family: 'Poppins', sans-serif; /* Ganti font */
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
     padding: 15px;
     border-radius: 10px;
-    font-size: 18px;
-    margin-top: 15px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .character {
