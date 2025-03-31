@@ -1,65 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const takbirAudio = document.getElementById("takbirAudio");
-    const takbirBtn = document.getElementById("takbirBtn");
-    const countdownElement = document.getElementById("countdown");
-    const messageElement = document.getElementById("message");
-    const starContainer = document.getElementById("stars");
-    let countdown = 5;
-
-    function updateCountdown() {
-        if (countdown > 0) {
-            countdownElement.textContent = countdown;
-            countdownElement.classList.add("shake");
-            setTimeout(() => countdownElement.classList.remove("shake"), 500);
-            countdown--;
-            setTimeout(updateCountdown, 1000);
-        } else {
-            messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong class='blink'>Selamat Idul Fitri!</strong>";
-            messageElement.classList.add("fade-in");
-        }
-    }
-    updateCountdown();
-
-    takbirBtn.addEventListener("click", () => {
-        if (takbirAudio.paused) {
-            takbirAudio.play().catch(error => console.log("Autoplay tidak diizinkan, tekan tombol untuk memulai."));
-            takbirBtn.textContent = "⏸️ Jeda Takbir";
-        } else {
-            takbirAudio.pause();
-            takbirBtn.textContent = "▶️ Putar Takbir";
-        }
-    });
-
-    function createStars() {
-        for (let i = 0; i < 100; i++) {
-            let star = document.createElement("div");
-            star.className = "star";
-            star.style.top = Math.random() * 100 + "vh";
-            star.style.left = Math.random() * 100 + "vw";
-            star.style.animationDuration = Math.random() * 3 + 2 + "s";
-            starContainer.appendChild(star);
-        }
-    }
-    createStars();
-
-    function animateMoon() {
-        const moon = document.getElementById("moon");
-        moon.classList.add("moon-glow");
-    }
-    animateMoon();
-
-    function animateCharacter() {
-        const character = document.getElementById("character");
-        character.classList.add("bounce");
-    }
-    animateCharacter();
-
-    function floatingTextEffect() {
-        const floatingText = document.createElement("div");
-        floatingText.className = "floating-text";
-        floatingText.innerText = "✨ Selamat Idul Fitri! ✨";
-        document.body.appendChild(floatingText);
-        setTimeout(() => floatingText.remove(), 5000);
-    }
-    setInterval(floatingTextEffect, 7000);
-});
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Idul Fitri 1446H</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="stars"></div>
+    <div class="container">
+        <img id="moon" class="moon" src="https://i.postimg.cc/QxmWXM58/new-moon.png" alt="Bulan Idul Fitri">
+        <h1>🌙 Assalamualaikum, Selamat Hari Raya Idul Fitri 1446H</h1>
+        <h2>Mohon Maaf Lahir dan Batin</h2>
+        <div id="message" class="message-box">Menghapus dosa-dosa lama dalam <span id="countdown">5</span> detik...</div>
+        <img id="character" class="character" src="https://i.postimg.cc/J0YF7pM8/new-character.png" alt="Karakter Idul Fitri">
+        <button id="takbirBtn" class="glow-button">▶️ Putar Takbir</button>
+        <audio id="takbirAudio" src="https://archive.org/download/takbir_20250331/takbir.mp3"></audio>
+        <h3>Salam dari Haryono dan keluarga</h3>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
