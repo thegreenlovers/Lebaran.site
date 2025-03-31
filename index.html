@@ -7,22 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="particles"></canvas>
     <div id="stars"></div>
     <div class="container">
-        <img class="moon" src="https://i.postimg.cc/QxmWXM58/new-moon.png" alt="Bulan Idul Fitri">
+        <img id="moon" class="moon" src="https://i.postimg.cc/QxmWXM58/new-moon.png" alt="Bulan Idul Fitri">
         <h1>🌙 Assalamualaikum, Selamat Hari Raya Idul Fitri 1446H</h1>
         <h2>Mohon Maaf Lahir dan Batin</h2>
         
-        <div id="message" class="message-box">Menghapus dosa-dosa lama dalam <span id="countdown">5</span> detik...</div>
-        <img id="character" class="character floating" src="https://i.postimg.cc/J0YF7pM8/new-character.png" alt="Karakter Idul Fitri">
+        <div id="message" class="message-box">
+            Menghapus dosa-dosa lama dalam <span id="countdown">5</span> detik...
+        </div>
+        
+        <img id="character" class="character" src="https://i.postimg.cc/J0YF7pM8/new-character.png" alt="Karakter Idul Fitri">
         
         <button id="takbirBtn" class="glow-button">▶️ Putar Takbir</button>
-        <audio id="takbirAudio" loop autoplay>
-        <source src="https://archive.org/download/takbir_20250331/takbir.mp3" type="audio/mpeg">
-        Browser Anda tidak mendukung elemen audio.
-        </audio>
-
+        <audio id="takbirAudio" src="https://archive.org/download/takbir_20250331/takbir.mp3"></audio>
         
         <h3>Salam dari Haryono dan keluarga</h3>
     </div>
