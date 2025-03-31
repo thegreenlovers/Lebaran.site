@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Idul Fitri 1445H</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 20px; 
+            background-color: #1a1a1a;
+            color: white;
+            overflow: hidden;
+        }
+        h1, h2 {
+            text-shadow: 0 0 10px #00ffcc;
+        }
+        #message { 
+            font-size: 20px; 
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .glow {
+            animation: glowEffect 1.5s infinite alternate;
+        }
+        @keyframes glowEffect {
+            from { text-shadow: 0 0 5px #ffcc00; }
+            to { text-shadow: 0 0 20px #ffcc00; }
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="glow">🌙 Selamat Hari Raya Idul Fitri 1445H</h1>
+    <h2>Mohon Maaf Lahir dan Batin</h2>
+    <p id="message">Menghapus dosa-dosa lama dalam <span id="countdown">5</span>...</p>
+    <canvas id="confettiCanvas"></canvas>
+
+    <script>
+        let countdown = 5;
+        let countdownElement = document.getElementById("countdown");
+        let messageElement = document.getElementById("message");
+
+        function updateCountdown() {
+            if (countdown > 0) {
+                countdownElement.textContent = countdown;
+                countdown--;
+                setTimeout(updateCountdown, 1000);
+            } else {
+                messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong class='glow'>Selamat Idul Fitri!</strong>";
+                startConfetti(); // Memulai efek konfeti
+            }
+        }
+        updateCountdown();
+
+        function startConfetti() {
+            const canvas = document.getElementById("confettiCanvas");
+            const ctx = canvas.getContext("2d");
+            const confettiPieces = [];
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            class Confetti {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height - canvas.height;
+                    this.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+                    this.size = Math.random() * 5 + 2;
+                    this.speed = Math.random() * 3 + 2;
+                }
+                update() {
+                    this.y += this.speed;
+                    if (this.y > canvas.height) {
+                        this.y = -10;
+                        this.x = Math.random() * canvas.width;
+                    }
+                }
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.fillRect(this.x, this.y, this.size, this.size);
+                }
+            }
+
+            for (let i = 0; i < 100; i++) {
+                confettiPieces.push(new Confetti());
+            }
+
+            function animateConfetti() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                confettiPieces.forEach((confetti) => {
+                    confetti.update();
+                    confetti.draw();
+                });
+                requestAnimationFrame(animateConfetti);
+            }
+
+            animateConfetti();
+        }
+    </script>
+
+</body>
+</html>
