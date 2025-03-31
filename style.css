@@ -120,3 +120,14 @@ h2 {
     0% { opacity: 1; }
     100% { opacity: 0.4; }
 }
+
+@keyframes blinkBackground {
+    0% { background-color: #121212; }
+    50% { background-color: #1e1e1e; }
+    100% { background-color: #121212; }
+}
+
+body {
+    animation: blinkBackground 3s infinite alternate; /* Efek kelap-kelip */
+    transition: background-color 0.5s ease-in-out;
+}
