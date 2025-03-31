@@ -7,31 +7,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Canvas Partikel -->
     <canvas id="particles"></canvas>
-
     <div class="container">
-        <!-- Bulan Bersinar -->
         <img class="moon" src="https://i.postimg.cc/65LwFgkT/moon.png" alt="Bulan Idul Fitri">
-
-        <!-- Teks Ucapan -->
-        <h1 class="glow fade-in">🌙 Selamat Hari Raya Idul Fitri 1445H</h1>
-        <h2 class="hover-effect fade-in-delay">Mohon Maaf Lahir dan Batin</h2>
-
-        <!-- Pesan Ucapan -->
-        <div id="message" class="message-box fade-in-delay">
-            Menghapus dosa-dosa lama dalam <span id="countdown">5</span> detik...
-        </div>
-
-        <!-- Karakter Animasi -->
+        <h1 class="glow">🌙 Selamat Hari Raya Idul Fitri 1445H</h1>
+        <h2 class="fade-in-delay">Mohon Maaf Lahir dan Batin</h2>
+        <div id="message" class="message-box">Menghapus dosa-dosa lama dalam <span id="countdown">5</span> detik...</div>
         <img id="character" class="character floating" src="https://i.postimg.cc/tgJ5VhHQ/character.png" alt="Karakter Idul Fitri">
-
-        <!-- Button Takbiran -->
         <button id="takbirBtn" class="glow-button">▶️ Putar Takbir</button>
     </div>
-
-    <script src="script.js"></script>
-
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let countdown = 5;
+            const countdownElement = document.getElementById("countdown");
+            const messageElement = document.getElementById("message");
+            const takbirAudio = new Audio("https://www.islamiclyrics.net/wp-content/uploads/2015/09/Takbir-Eid.mp3");
+            const takbirBtn = document.getElementById("takbirBtn");
+            
+            function updateCountdown() {
+                if (countdown > 0) {
+                    countdownElement.textContent = countdown;
+                    countdown--;
+                    setTimeout(updateCountdown, 1000);
+                } else {
+                    messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong class='glow'>Selamat Idul Fitri!</strong>";
+                }
+            }
+            updateCountdown();
+            
+            takbirBtn.addEventListener("click", () => {
+                if (takbirAudio.paused) {
+                    takbirAudio.play().catch(() => alert("Silakan klik tombol Play untuk memutar audio."));
+                    takbirBtn.textContent = "⏸️ Stop Takbir";
+                } else {
+                    takbirAudio.pause();
+                    takbirBtn.textContent = "▶️ Putar Takbir";
+                }
+            });
+        });
+    </script>
 </body>
 </html>
