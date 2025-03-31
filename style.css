@@ -1,104 +1,75 @@
-/* Styling Global */
 body {
-    background: linear-gradient(120deg, #1a1a2e, #16213e);
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
     overflow: hidden;
 }
 
-/* Kontainer Pusat */
 .container {
-    position: relative;
-    text-align: center;
-    max-width: 90%;
-    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 700px;
+    padding: 20px;
 }
 
-/* Efek Glow pada Teks */
-.glow {
-    font-size: 2.5em;
-    text-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900;
-}
-.hover-effect:hover {
-    color: #ffcc00;
-    text-shadow: 0 0 20px #ffcc00, 0 0 40px #ff9900;
+.moon {
+    width: 120px;
+    margin-bottom: 20px;
 }
 
-/* Pesan dalam Kotak */
-.message-box {
-    font-size: 1.4em;
+h1 {
+    font-size: 24px;
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.15);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.message-box {
+    background: rgba(255, 255, 255, 0.2);
     padding: 15px;
     border-radius: 10px;
-    display: inline-block;
-    text-align: center;
+    font-size: 16px;
     margin-top: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-/* Efek Fade-in */
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards;
-}
-.fade-in-delay {
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out 1s forwards;
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Karakter Floating */
 .character {
-    width: 160px;
+    width: 180px;
     margin-top: 20px;
 }
-.floating {
-    animation: float 3s infinite ease-in-out;
-}
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
 
-/* Bulan Bersinar */
-.moon {
-    width: 180px;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.8;
-    animation: glowMoon 3s infinite alternate ease-in-out;
-}
-@keyframes glowMoon {
-    from { filter: drop-shadow(0 0 5px #ffcc00); }
-    to { filter: drop-shadow(0 0 15px #ff9900); }
-}
-
-/* Tombol Glow */
 .glow-button {
     background-color: #ffcc00;
     border: none;
     padding: 12px 25px;
-    font-size: 20px;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ffcc00;
-    transition: all 0.3s;
     margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.8);
+    transition: 0.3s;
 }
+
 .glow-button:hover {
-    background-color: #ff9900;
-    box-shadow: 0 0 20px #ff9900;
-    transform: scale(1.1);
+    background-color: #ffdb4d;
 }
