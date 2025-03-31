@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             countdown--;
             setTimeout(updateCountdown, 1000);
         } else {
-            messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong class='blink'>Selamat Idul Fitri!</strong>";
+            messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong class='blink'>Happy Idul Fitri 1446H!</strong>";
             messageElement.classList.add("fade-in");
         }
     }
