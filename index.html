@@ -18,7 +18,7 @@
         
         <button id="takbirBtn" class="glow-button">▶️ Putar Takbir</button>
         <audio id="takbirAudio" loop>
-            <source src="https://files.catbox.moe/yourtakbirfile.mp3" type="audio/mpeg">
+            <source src="https://archive.org/download/takbir_20250331/takbir.mp3" type="audio/mpeg">
             Browser Anda tidak mendukung elemen audio.
         </audio>
         
@@ -28,7 +28,21 @@
         document.addEventListener("DOMContentLoaded", () => {
             const takbirAudio = document.getElementById("takbirAudio");
             const takbirBtn = document.getElementById("takbirBtn");
-            
+            const countdownElement = document.getElementById("countdown");
+            const messageElement = document.getElementById("message");
+            let countdown = 5;
+
+            function updateCountdown() {
+                if (countdown > 0) {
+                    countdownElement.textContent = countdown;
+                    countdown--;
+                    setTimeout(updateCountdown, 1000);
+                } else {
+                    messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong>Selamat Idul Fitri!</strong>";
+                }
+            }
+            updateCountdown();
+
             takbirBtn.addEventListener("click", () => {
                 if (takbirAudio.paused) {
                     takbirAudio.play().catch(error => console.log("Autoplay tidak diizinkan, tekan tombol untuk memulai."));
