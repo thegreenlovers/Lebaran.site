@@ -1,3 +1,4 @@
+/* script.js */
 document.addEventListener("DOMContentLoaded", () => {
     const takbirAudio = document.getElementById("takbirAudio");
     const takbirBtn = document.getElementById("takbirBtn");
@@ -8,10 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateCountdown() {
         if (countdown > 0) {
             countdownElement.textContent = countdown;
+            countdownElement.classList.add("shake");
+            setTimeout(() => countdownElement.classList.remove("shake"), 500);
             countdown--;
             setTimeout(updateCountdown, 1000);
         } else {
-            messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong>Selamat Idul Fitri!</strong>";
+            messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong class='blink'>Selamat Idul Fitri!</strong>";
         }
     }
     updateCountdown();
