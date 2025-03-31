@@ -28,25 +28,14 @@ takbirBtn.addEventListener("click", () => {
     }
 });
 
-// Efek "Tebarkan Salam!" di Klik
-document.body.addEventListener("click", (e) => {
-    let salam = document.createElement("div");
-    salam.className = "salam";
-    salam.textContent = "Tebarkan Salam!";
-    salam.style.left = `${e.clientX}px`;
-    salam.style.top = `${e.clientY}px`;
-    document.body.appendChild(salam);
-    setTimeout(() => salam.remove(), 3000);
-});
-
-// Efek Partikel
+// Efek Partikel (Bintang Berjatuhan)
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
-for (let i = 0; i < 80; i++) {
+for (let i = 0; i < 100; i++) {
     particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
