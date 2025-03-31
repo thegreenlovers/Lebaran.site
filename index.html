@@ -24,31 +24,51 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 80%;
-            max-width: 600px;
+            width: 90%;
+            max-width: 700px;
+            padding: 20px;
         }
         .moon {
-            width: 100px;
+            width: 120px;
             margin-bottom: 20px;
         }
-        .character {
-            width: 150px;
-            margin-top: 20px;
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            opacity: 0.9;
         }
         .message-box {
             background: rgba(255, 255, 255, 0.2);
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px;
-            margin-top: 10px;
+            font-size: 16px;
+            margin-top: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        .character {
+            width: 180px;
+            margin-top: 20px;
         }
         .glow-button {
             background-color: #ffcc00;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 25px;
+            border-radius: 8px;
             cursor: pointer;
-            margin-top: 15px;
-            font-size: 16px;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 204, 0, 0.8);
+            transition: 0.3s;
+        }
+        .glow-button:hover {
+            background-color: #ffdb4d;
         }
     </style>
 </head>
@@ -56,8 +76,8 @@
     <canvas id="particles"></canvas>
     <div class="container">
         <img class="moon" src="https://i.postimg.cc/QxmWXM58/new-moon.png" alt="Bulan Idul Fitri">
-        <h1 class="glow">🌙 Assalamualaikum, Selamat Hari Raya Idul Fitri 1446H</h1>
-        <h2 class="fade-in-delay">Mohon Maaf Lahir dan Batin</h2>
+        <h1>🌙 Assalamualaikum, Selamat Hari Raya Idul Fitri 1446H</h1>
+        <h2>Mohon Maaf Lahir dan Batin</h2>
         <div id="message" class="message-box">Menghapus dosa-dosa lama dalam <span id="countdown">5</span> detik...</div>
         <img id="character" class="character floating" src="https://i.postimg.cc/J0YF7pM8/new-character.png" alt="Karakter Idul Fitri">
         <button id="takbirBtn" class="glow-button">▶️ Putar Takbir</button>
@@ -76,7 +96,7 @@
                     countdown--;
                     setTimeout(updateCountdown, 1000);
                 } else {
-                    messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong class='glow'>Selamat Idul Fitri!</strong>";
+                    messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong>Selamat Idul Fitri!</strong>";
                 }
             }
             updateCountdown();
