@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
     display: flex;
     justify-content: center;
@@ -7,7 +9,7 @@ body {
     background-color: #121212;
     color: white;
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Pacifico', cursive;
     overflow: hidden;
 }
 
@@ -19,28 +21,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     width: 90%;
     max-width: 700px;
-    padding: 20px;
 }
 
 .moon {
     width: 120px;
     margin-bottom: 20px;
+    animation: glow 3s infinite alternate;
 }
 
-h1 {
-    font-size: 24px;
-    font-weight: bold;
+@keyframes glow {
+    0% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6)); }
+    100% { filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1)); }
+}
+
+h1, h2 {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    opacity: 0.9;
 }
 
 .message-box {
@@ -55,6 +52,12 @@ h2 {
 .character {
     width: 180px;
     margin-top: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .glow-button {
@@ -72,4 +75,37 @@ h2 {
 
 .glow-button:hover {
     background-color: #ffdb4d;
+}
+
+#stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+.countdown-animate {
+    animation: scaleUp 1s ease-in-out;
+}
+
+@keyframes scaleUp {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
