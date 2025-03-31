@@ -54,12 +54,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     animateCharacter();
 
-    function floatingTextEffect() {
-        const floatingText = document.createElement("div");
-        floatingText.className = "floating-text";
-        floatingText.innerText = "✨ Selamat Idul Fitri! ✨";
-        document.body.appendChild(floatingText);
-        setTimeout(() => floatingText.remove(), 5000);
-    }
-    setInterval(floatingTextEffect, 7000);
 });
