@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Idul Fitri 1445H</title>
+    <title>Selamat Idul Fitri 1446H</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -19,7 +19,10 @@
             overflow: hidden;
         }
         .container {
-            position: relative;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -107,12 +110,8 @@
             takbirBtn.addEventListener("click", () => {
                 if (backgroundTakbir.paused) {
                     backgroundTakbir.play();
-                if (takbirAudio.paused) {
-                    takbirAudio.play().catch(() => alert("Silakan klik tombol Play untuk memutar audio."));
-                    takbirBtn.textContent = "⏸️ Stop Takbir";
                 } else {
-                    takbirAudio.pause();
-                    takbirBtn.textContent = "▶️ Putar Takbir";
+                    backgroundTakbir.pause();
                 }
             });
         });
