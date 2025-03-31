@@ -41,4 +41,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     createStars();
+
+    function animateMoon() {
+        const moon = document.getElementById("moon");
+        moon.classList.add("moon-glow");
+    }
+    animateMoon();
+
+    function animateCharacter() {
+        const character = document.getElementById("character");
+        character.classList.add("bounce");
+    }
+    animateCharacter();
+
+    function floatingTextEffect() {
+        const floatingText = document.createElement("div");
+        floatingText.className = "floating-text";
+        floatingText.innerText = "✨ Selamat Idul Fitri! ✨";
+        document.body.appendChild(floatingText);
+        setTimeout(() => floatingText.remove(), 5000);
+    }
+    setInterval(floatingTextEffect, 7000);
 });
