@@ -89,13 +89,13 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const backgroundTakbir = new Audio("https://cdn.islamicfinder.org/audio/Takbeer-Eid.mp3");
+            const backgroundTakbir = new Audio("https://download.quranicaudio.com/quran/mishary_al_afasy/takbeer.mp3");
             backgroundTakbir.loop = true;
             backgroundTakbir.play().catch(() => console.log("Autoplay tidak didukung, pengguna harus menekan tombol"));
             let countdown = 5;
             const countdownElement = document.getElementById("countdown");
             const messageElement = document.getElementById("message");
-            const takbirAudio = new Audio("https://cdn.islamicfinder.org/audio/Takbeer-Eid.mp3");
+            const takbirAudio = new Audio("https://download.quranicaudio.com/quran/mishary_al_afasy/takbeer.mp3");
             const takbirBtn = document.getElementById("takbirBtn");
             
             function updateCountdown() {
