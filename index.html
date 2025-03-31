@@ -79,21 +79,22 @@
     <canvas id="particles"></canvas>
     <div class="container">
         <img class="moon" src="https://i.postimg.cc/QxmWXM58/new-moon.png" alt="Bulan Idul Fitri">
-        <h1>🌙 Assalamualaikum, Selamat Hari Raya Idul Fitri 1446H</h1>
+        <h1>🌙 Assalamualaikum </h1>
         <h2>Mohon Maaf Lahir dan Batin</h2>
+        <h3>Salam dari HDA</h3>
         <div id="message" class="message-box">Menghapus dosa-dosa lama dalam <span id="countdown">5</span> detik...</div>
         <img id="character" class="character floating" src="https://i.postimg.cc/J0YF7pM8/new-character.png" alt="Karakter Idul Fitri">
         <button id="takbirBtn" class="glow-button">▶️ Putar Takbir</button>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const backgroundTakbir = new Audio("https://www.islamiclyrics.net/wp-content/uploads/2015/09/Takbir-Eid.mp3");
+            const backgroundTakbir = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
             backgroundTakbir.loop = true;
             backgroundTakbir.play().catch(() => console.log("Autoplay tidak didukung, pengguna harus menekan tombol"));
             let countdown = 5;
             const countdownElement = document.getElementById("countdown");
             const messageElement = document.getElementById("message");
-            const takbirAudio = new Audio("https://www.islamiclyrics.net/wp-content/uploads/2015/09/Takbir-Eid.mp3");
+            const takbirAudio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
             const takbirBtn = document.getElementById("takbirBtn");
             
             function updateCountdown() {
