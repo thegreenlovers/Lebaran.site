@@ -4,54 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selamat Idul Fitri 1445H</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            background-color: #1a1a1a;
-            color: white;
-            overflow: hidden;
-        }
-        h1, h2 {
-            text-shadow: 0 0 10px #00ffcc;
-        }
-        #message { 
-            font-size: 20px; 
-            margin-top: 20px;
-            animation: fadeIn 2s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .glow {
-            animation: glowEffect 1.5s infinite alternate;
-        }
-        @keyframes glowEffect {
-            from { text-shadow: 0 0 5px #ffcc00; }
-            to { text-shadow: 0 0 20px #ffcc00; }
-        }
-        /* Karakter Animasi */
-        .character {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 100px;
-            cursor: pointer;
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        .wave {
-            animation: waveHand 1s ease-in-out 3;
-        }
-        @keyframes waveHand {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(20deg); }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -60,32 +13,9 @@
     <p id="message">Menghapus dosa-dosa lama dalam <span id="countdown">5</span>...</p>
 
     <!-- Karakter Animasi -->
-    <img id="character" class="character" src="https://i.postimg.cc/tgJ5VhHQ/character.png" alt="Karakter Idul Fitri">
+    <img id="character" class="character" src="character.png" alt="Karakter Idul Fitri">
 
-    <script>
-        let countdown = 5;
-        let countdownElement = document.getElementById("countdown");
-        let messageElement = document.getElementById("message");
-
-        function updateCountdown() {
-            if (countdown > 0) {
-                countdownElement.textContent = countdown;
-                countdown--;
-                setTimeout(updateCountdown, 1000);
-            } else {
-                messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong class='glow'>Selamat Idul Fitri!</strong>";
-            }
-        }
-        updateCountdown();
-
-        // Efek Karakter Melambaikan Tangan
-        document.getElementById("character").addEventListener("click", function() {
-            this.classList.add("wave");
-            setTimeout(() => {
-                this.classList.remove("wave");
-            }, 3000);
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
