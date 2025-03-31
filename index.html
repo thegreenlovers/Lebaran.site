@@ -8,7 +8,6 @@
         body { 
             font-family: Arial, sans-serif; 
             text-align: center; 
-            padding: 20px; 
             background-color: #1a1a1a;
             color: white;
             overflow: hidden;
@@ -32,13 +31,25 @@
             from { text-shadow: 0 0 5px #ffcc00; }
             to { text-shadow: 0 0 20px #ffcc00; }
         }
-        canvas {
+        /* Karakter Animasi */
+        .character {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
+            bottom: 10px;
+            right: 10px;
+            width: 100px;
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .wave {
+            animation: waveHand 1s ease-in-out 3;
+        }
+        @keyframes waveHand {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(20deg); }
         }
     </style>
 </head>
@@ -47,7 +58,9 @@
     <h1 class="glow">🌙 Selamat Hari Raya Idul Fitri 1445H</h1>
     <h2>Mohon Maaf Lahir dan Batin</h2>
     <p id="message">Menghapus dosa-dosa lama dalam <span id="countdown">5</span>...</p>
-    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Karakter Animasi -->
+    <img id="character" class="character" src="https://i.postimg.cc/tgJ5VhHQ/character.png" alt="Karakter Idul Fitri">
 
     <script>
         let countdown = 5;
@@ -61,55 +74,17 @@
                 setTimeout(updateCountdown, 1000);
             } else {
                 messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong class='glow'>Selamat Idul Fitri!</strong>";
-                startConfetti(); // Memulai efek konfeti
             }
         }
         updateCountdown();
 
-        function startConfetti() {
-            const canvas = document.getElementById("confettiCanvas");
-            const ctx = canvas.getContext("2d");
-            const confettiPieces = [];
-
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            class Confetti {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height - canvas.height;
-                    this.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
-                    this.size = Math.random() * 5 + 2;
-                    this.speed = Math.random() * 3 + 2;
-                }
-                update() {
-                    this.y += this.speed;
-                    if (this.y > canvas.height) {
-                        this.y = -10;
-                        this.x = Math.random() * canvas.width;
-                    }
-                }
-                draw() {
-                    ctx.fillStyle = this.color;
-                    ctx.fillRect(this.x, this.y, this.size, this.size);
-                }
-            }
-
-            for (let i = 0; i < 100; i++) {
-                confettiPieces.push(new Confetti());
-            }
-
-            function animateConfetti() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                confettiPieces.forEach((confetti) => {
-                    confetti.update();
-                    confetti.draw();
-                });
-                requestAnimationFrame(animateConfetti);
-            }
-
-            animateConfetti();
-        }
+        // Efek Karakter Melambaikan Tangan
+        document.getElementById("character").addEventListener("click", function() {
+            this.classList.add("wave");
+            setTimeout(() => {
+                this.classList.remove("wave");
+            }, 3000);
+        });
     </script>
 
 </body>
