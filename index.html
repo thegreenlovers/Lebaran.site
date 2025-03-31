@@ -18,7 +18,7 @@
         
         <button id="takbirBtn" class="glow-button">▶️ Putar Takbir</button>
         <audio id="takbirAudio" loop>
-            <source src="https://archive.org/download/takbir_20250331/takbir.mp3" type="audio/mpeg">
+            <source src="https://files.catbox.moe/yourtakbirfile.mp3" type="audio/mpeg">
             Browser Anda tidak mendukung elemen audio.
         </audio>
         
@@ -31,7 +31,7 @@
             
             takbirBtn.addEventListener("click", () => {
                 if (takbirAudio.paused) {
-                    takbirAudio.play();
+                    takbirAudio.play().catch(error => console.log("Autoplay tidak diizinkan, tekan tombol untuk memulai."));
                     takbirBtn.textContent = "⏸️ Jeda Takbir";
                 } else {
                     takbirAudio.pause();
