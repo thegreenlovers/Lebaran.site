@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+
+
 body {
     display: flex;
     justify-content: center;
@@ -9,7 +11,7 @@ body {
     background-color: #121212;
     color: white;
     text-align: center;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Dancing Script', cursive
     overflow: hidden;
 }
 
