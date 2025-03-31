@@ -63,4 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => floatingText.remove(), 5000);
     }
     setInterval(floatingTextEffect, 7000);
+
+    function animateCountdown() {
+        countdownElement.classList.add("countdown-animate");
+    }
+    animateCountdown();
 });
