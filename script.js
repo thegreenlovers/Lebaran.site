@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(updateCountdown, 1000);
         } else {
             messageElement.innerHTML = "🎉 Dosa-dosa lama telah dihapus! 🎉<br>Menjalankan update ke versi lebih baik...<br><strong class='blink'>Selamat Idul Fitri!</strong>";
+            messageElement.classList.add("fade-in");
         }
     }
     updateCountdown();
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function createStars() {
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 100; i++) {
             let star = document.createElement("div");
             star.className = "star";
             star.style.top = Math.random() * 100 + "vh";
@@ -41,4 +42,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     createStars();
+
+    function animateMoon() {
+        const moon = document.getElementById("moon");
+        moon.classList.add("moon-glow");
+    }
+    animateMoon();
+
+    function animateCharacter() {
+        const character = document.getElementById("character");
+        character.classList.add("bounce");
+    }
+    animateCharacter();
+
+    function floatingTextEffect() {
+        const floatingText = document.createElement("div");
+        floatingText.className = "floating-text";
+        floatingText.innerText = "✨ Selamat Idul Fitri! ✨";
+        document.body.appendChild(floatingText);
+        setTimeout(() => floatingText.remove(), 5000);
+    }
+    setInterval(floatingTextEffect, 7000);
 });
