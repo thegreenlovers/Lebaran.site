@@ -58,3 +58,28 @@ window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+// Tombol Takbiran
+const takbirAudio = document.getElementById("takbirAudio");
+const takbirBtn = document.getElementById("takbirBtn");
+
+takbirBtn.addEventListener("click", () => {
+    if (takbirAudio.paused) {
+        takbirAudio.play();
+        takbirBtn.textContent = "⏸️ Stop Takbir";
+    } else {
+        takbirAudio.pause();
+        takbirBtn.textContent = "▶️ Putar Takbir";
+    }
+});
+
+// Efek "Tebarkan Salam!" di Klik
+document.body.addEventListener("click", (e) => {
+    let salam = document.createElement("div");
+    salam.className = "salam";
+    salam.textContent = "Tebarkan Salam!";
+    salam.style.left = `${e.clientX}px`;
+    salam.style.top = `${e.clientY}px`;
+    document.body.appendChild(salam);
+    setTimeout(() => salam.remove(), 3000);
+});
