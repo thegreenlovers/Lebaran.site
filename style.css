@@ -7,23 +7,26 @@ body {
     overflow: hidden;
     height: 100vh;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Kontainer */
+/* Kontainer Pusat */
 .container {
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    text-align: center;
+    z-index: 2;
 }
 
 /* Efek Glow pada Teks */
 .glow {
-    font-size: 2em;
-    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+    font-size: 2.5em;
+    text-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900;
 }
 .hover-effect:hover {
     color: #ffcc00;
-    text-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900;
+    text-shadow: 0 0 20px #ffcc00, 0 0 40px #ff9900;
 }
 
 /* Efek Fade-in */
@@ -42,8 +45,9 @@ body {
 
 /* Karakter Floating */
 .character {
-    width: 150px;
+    width: 160px;
     position: relative;
+    margin-top: 20px;
 }
 .floating {
     animation: float 3s infinite ease-in-out;
@@ -54,35 +58,35 @@ body {
     100% { transform: translateY(0px); }
 }
 
+/* Bulan Bersinar */
+.moon {
+    width: 180px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.8;
+    animation: glowMoon 3s infinite alternate ease-in-out;
+}
+@keyframes glowMoon {
+    from { filter: drop-shadow(0 0 5px #ffcc00); }
+    to { filter: drop-shadow(0 0 15px #ff9900); }
+}
+
 /* Tombol Glow */
 .glow-button {
     background-color: #ffcc00;
     border: none;
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 12px 25px;
+    font-size: 20px;
     cursor: pointer;
     border-radius: 10px;
     box-shadow: 0 0 10px #ffcc00;
     transition: all 0.3s;
+    margin-top: 20px;
 }
 .glow-button:hover {
     background-color: #ff9900;
     box-shadow: 0 0 20px #ff9900;
     transform: scale(1.1);
-}
-
-/* Efek Salam */
-.salam {
-    position: absolute;
-    font-size: 24px;
-    font-weight: bold;
-    background: linear-gradient(90deg, #ffcc00, #ff6600);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 5px rgba(255, 102, 0, 0.7);
-    animation: fadeOut 3s forwards;
-}
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; transform: translateY(-50px); }
 }
